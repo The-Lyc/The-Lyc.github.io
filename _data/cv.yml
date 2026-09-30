@@ -1,0 +1,86 @@
+cv:
+  name: Yichen Liu / 刘益辰
+  label: Ph.D. student
+  summary: Ph.D. student at the School of Computer Science and Engineering, University of Electronic Science and Technology of China (UESTC).
+
+  sections:
+    Education:
+      - institution: University of Electronic Science and Technology of China (UESTC)
+        studyType: Doctoral studies
+        start_date: "2026.03"
+        end_date: present
+        highlights:
+          - Transferred from the master's program to the Ph.D. program in March 2026.
+
+      - institution: University of Electronic Science and Technology of China (UESTC)
+        studyType: Master's studies
+        start_date: 2024
+        end_date: "2026.03"
+
+      - institution: University of Electronic Science and Technology of China (UESTC)
+        area: Computer Science and Technology
+        studyType: Undergraduate studies
+        start_date: "2020.09"
+        end_date: "2024.06"
+        highlights:
+          - "Overall score: 92.36/100."
+          - "Major rank: 10/143."
+          - Graduate admission by recommendation.
+
+    Research Interests:
+      - bullet: ML systems
+      - bullet: GPU scheduling
+      - bullet: Real-time systems
+      - bullet: LLM inference serving
+
+    Current Research:
+      - bullet: Runtime KV cache offloading
+      - bullet: Replay and recomputation control
+      - bullet: Memory-constrained LLM inference
+
+    Projects:
+      - name: AdaLLM
+        topic: LLM inference
+        url: https://github.com/The-Lyc/AdaLLM
+        summary: A vLLM-based research project for memory-constrained LLM inference. It explores runtime KV cache offloading and adaptive replay/recomputation control.
+      - name: RT-Container
+        topic: Real-time systems
+        url: https://github.com/The-Lyc/RTContainer
+        summary: An RTEMS-based project on resource management and isolation for real-time containers.
+
+    Publications:
+      - title: Achieving Predictable Timer Management under Varying Workload Conditions in ROS 2
+        authors:
+          - Yichen Liu
+          - Xu Jiang
+          - Nan Guan
+          - Yue Tang
+          - Shaoshuai Zhang
+        publisher: IEEE Transactions on Computers
+        releaseDate: 2026
+        url: https://doi.org/10.1109/TC.2026.3716212
+        summary: "<u>Yichen Liu</u>, Xu Jiang, Nan Guan, Yue Tang, Shaoshuai Zhang. DOI: 10.1109/TC.2026.3716212."
+
+      - title: On the Scalability and Efficiency of Intra-Process Communication in ROS 2
+        authors:
+          - Xiantong Luo
+          - Xu Jiang
+          - Yichen Liu
+          - Nan Guan
+          - Yue Tang
+          - Shaoshuai Zhang
+        publisher: 2025 IEEE Real-Time Systems Symposium (RTSS)
+        releaseDate: 2025
+        url: https://doi.org/10.1109/RTSS66672.2025.00014
+        summary: "Xiantong Luo, Xu Jiang, <u>Yichen Liu</u>, Nan Guan, Yue Tang, Shaoshuai Zhang. DOI: 10.1109/RTSS66672.2025.00014."
+
+    Awards:
+      - title: EDAthon 2026 — Second Place
+        date: 2026
+        url: https://sites.google.com/view/ceda-hk/edathon-2026
+        summary: "Team: Yachen Wang and Yichen Liu."
+      - title: 全国大学生操作系统能力大赛 — 一等奖
+        date: 2024
+        url: https://os.educg.net/#/oldDetail?name=2024%E5%B9%B4%E5%85%A8%E5%9B%BD%E5%A4%A7%E5%AD%A6%E7%94%9F%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E8%83%BD%E5%8A%9B%E5%A4%A7%E8%B5%9B-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E8%B5%9B%28%E5%85%A8%E5%9B%BD%29-OS%E5%8A%9F%E8%83%BD%E6%8C%91%E6%88%98%E8%B5%9B%E9%81%93
+      - title: 全国大学生信息安全竞赛作品赛 — 二等奖
+        date: 2024
