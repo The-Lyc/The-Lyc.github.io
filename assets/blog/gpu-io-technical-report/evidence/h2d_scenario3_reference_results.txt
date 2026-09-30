@@ -1,0 +1,22 @@
+[3] 大量独立小 buffer H2D (每个 buffer 单独 cudaMalloc/cudaHostAlloc)
+scenario                   method    med(ms)    min(ms)  med(GB/s)  min(GB/s)  enq(ms)  verify
+indep 4 KiB n=1            CE          0.003      0.003       1.60       1.62    0.001  OK
+indep 4 KiB n=1            CEgr        0.003      0.003       1.60       1.62    0.001  OK
+indep 4 KiB n=1            CEbt        0.003      0.003       1.60       1.62    0.001  OK
+indep 4 KiB n=1            SM          0.004      0.004       0.98       1.08    0.001  OK
+indep 4 KiB n=4096         CE          5.375      5.361       3.12       3.13    4.572  OK
+indep 4 KiB n=4096         CEgr        5.520      5.389       3.04       3.11    5.513  OK
+indep 4 KiB n=4096         CEbt        1.543      1.540      10.88      10.89    0.907  OK
+indep 4 KiB n=4096         SM          0.629      0.629      26.67      26.68    0.001  OK
+indep 16 KiB n=1024        CE          1.996      1.989       8.40       8.44    1.158  OK
+indep 16 KiB n=1024        CEgr        1.721      1.703       9.75       9.85    1.714  OK
+indep 16 KiB n=1024        CEbt        0.848      0.848      19.78      19.79    0.226  OK
+indep 16 KiB n=1024        SM          0.629      0.628      26.67      26.69    0.001  OK
+indep 64 KiB n=256         CE          0.997      0.990      16.83      16.94    0.308  OK
+indep 64 KiB n=256         CEgr        0.998      0.996      16.81      16.84    0.277  OK
+indep 64 KiB n=256         CEbt        0.677      0.672      24.78      24.95    0.056  OK
+indep 64 KiB n=256         SM          0.629      0.629      26.68      26.69    0.001  OK
+indep 256 KiB n=64         CE          0.714      0.713      23.51      23.54    0.077  OK
+indep 256 KiB n=64         CEgr        0.721      0.721      23.26      23.27    0.071  OK
+indep 256 KiB n=64         CEbt        0.638      0.638      26.28      26.29    0.015  OK
+indep 256 KiB n=64         SM          0.629      0.628      26.68      26.70    0.001  OK

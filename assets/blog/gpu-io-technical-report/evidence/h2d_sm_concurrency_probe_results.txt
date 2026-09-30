@@ -1,0 +1,16 @@
+GPU=NVIDIA GeForce RTX 4090 SMs=128 chunk=4096 count=4096 bytes=16777216 threads=256 reps=15
+Pointer tables are uploaded before timing; this isolates SM execution concurrency.
+method,blocks,median_ms,min_ms,GBps,enqueue_us,bad_buffers
+SM_limited,4096,0.629024,0.628704,26.672,1.152,0
+SM_limited,1,3.118080,3.105472,5.381,1.193,0
+SM_limited,128,0.628992,0.628736,26.673,1.182,0
+SM_limited,4,0.930816,0.926720,18.024,1.192,0
+SM_limited,512,0.628736,0.628640,26.684,1.182,0
+SM_limited,16,0.629728,0.628736,26.642,1.152,0
+SM_limited,2,1.601536,1.595296,10.476,1.182,0
+SM_limited,256,0.629152,0.628736,26.666,1.172,0
+SM_limited,8,0.632128,0.630336,26.541,1.192,0
+SM_limited,1024,0.628832,0.628736,26.680,1.183,0
+SM_limited,32,0.628864,0.628736,26.679,1.172,0
+SM_limited,64,0.629760,0.628736,26.641,1.172,0
+SM_original,4096,0.628736,0.628352,26.684,1.192,0

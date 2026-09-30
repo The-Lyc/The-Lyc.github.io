@@ -18,6 +18,8 @@ pagination:
 
 <div class="post">
 
+<p><a href="{{ '/blog/topics/' | relative_url }}">按专题阅读：vLLM、llama.cpp、GPU 与课程笔记 →</a></p>
+
 {% assign blog_name_size = site.blog_name | size %}
 {% assign blog_description_size = site.blog_description | size %}
 

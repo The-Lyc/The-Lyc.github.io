@@ -1,0 +1,6 @@
+tinygrad=794d314db5f67328b86886898e30f3c6a6d21a39 arch=sm_89 total_bytes=4194304 reps=9; same contiguous src/dst mappings; dynamic command encoding; one doorbell; first transfer non-pipelined, remaining transfers pipelined; input arrays prepared outside timing; complete data verification every run
+copies,chunk_bytes,launch_total,launch_data,launch_pipe,launch_nonpipe,launch_none,doorbells,command_bytes,build_us,publish_us,submit_us,total_us,gpu_us,device_GBps,bad
+1,4194304,4,1,0,1,3,1,108,0.121,0.020,0.150,167.074,157.632,26.608,0
+4096,1024,4099,4096,4095,1,3,1,147528,6.302,0.030,6.322,178.606,162.656,25.786,0
+16384,256,16387,16384,16383,1,3,1,589896,21.972,0.030,22.082,248.648,216.640,19.361,0
+32768,128,32771,32768,32767,1,3,1,1179720,45.145,0.020,45.165,422.795,367.616,11.409,0

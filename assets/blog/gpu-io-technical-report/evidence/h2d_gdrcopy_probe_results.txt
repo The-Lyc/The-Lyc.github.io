@@ -1,0 +1,11 @@
+2026-09-18, NVIDIA GeForce RTX 4090, driver 595.91.07, CUDA Toolkit 12.8, driver-reported CUDA version 13.2.
+Standard GDRCopy branch skipped: libgdrapi.so and /dev/gdrdrv are absent.
+Earlier device capability query: GPU_DIRECT_RDMA_SUPPORTED=0 and DMA_BUF_SUPPORTED=0.
+GDRCopy 2.6 DMA-BUF mmap fallback requires a CUDA driver with 13.3+ support, so it is not a currently available fallback on this host.
+The two control rows below use a pooled destination allocation with an 8192-byte stride and are NOT directly comparable to the separate-buffer CPU BAR results.
+
+GPU=NVIDIA GeForce RTX 4090 count=4096 chunk=4096 dst_stride=8192 logical_bytes=16777216 reps=15
+GDRCopy=skip reason=libgdrapi.so not installed pin_map_ms=0.097
+method,prepare_us,issue_us,gpu_ready_us,cpu_issue_us,cpu_active_us,gpu_ready_GBps,cpu_core_equiv,bad
+cuda_batch,4.338,2337.997,2512.633,2342.725,2349.147,6.677,0.935,0
+sm,4.639,3.056,680.140,7.895,11.351,24.667,0.017,0

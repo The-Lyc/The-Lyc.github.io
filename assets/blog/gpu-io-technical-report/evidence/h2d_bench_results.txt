@@ -1,0 +1,56 @@
+Device: NVIDIA GeForce RTX 4090 | SMs: 128 | CC 8.9
+CE = cudaMemcpyAsync(pinned -> device), 走 Copy Engine
+SM = kernel 直接读 cudaHostAllocMapped 内存, 走 SM load/store
+每项为 10 次的中位/最小值; enq(ms) 为 CPU 提交耗时中位数
+
+[1] 大块连续数据 H2D
+scenario                   method    med(ms)    min(ms)  med(GB/s)  min(GB/s)  enq(ms)  verify
+contig 1 MiB               CE          0.042      0.042      24.69      24.84    0.001  OK
+contig 1 MiB               SM          0.044      0.043      23.94      24.38    0.001  OK
+contig 4 MiB               CE          0.159      0.159      26.32      26.34    0.001  OK
+contig 4 MiB               SM          0.161      0.161      26.06      26.12    0.001  OK
+contig 16 MiB              CE          0.628      0.628      26.71      26.72    0.001  OK
+contig 16 MiB              SM          0.630      0.629      26.65      26.68    0.001  OK
+contig 64 MiB              CE          2.503      2.502      26.81      26.82    0.001  OK
+contig 64 MiB              SM          2.502      2.501      26.83      26.84    0.001  OK
+contig 256 MiB             CE         10.016     10.001      26.80      26.84    0.001  OK
+contig 256 MiB             SM         10.007      9.989      26.82      26.87    0.001  OK
+
+[2] 大区域内零散小块 H2D (固定 stride)
+scenario                   method    med(ms)    min(ms)  med(GB/s)  min(GB/s)  enq(ms)  verify
+strided 4 KiB/64 KiB n=4096 CE          6.471      6.459       2.59       2.60    4.876  OK
+strided 4 KiB/64 KiB n=4096 CE2D        0.761      0.761      22.04      22.05    0.001  OK
+strided 4 KiB/64 KiB n=4096 SM          0.629      0.629      26.68      26.69    0.001  OK
+strided 64 KiB/1 MiB n=256 CE          1.057      1.051      15.88      15.97    0.285  OK
+strided 64 KiB/1 MiB n=256 CE2D        0.628      0.628      26.72      26.74    0.001  OK
+strided 64 KiB/1 MiB n=256 SM          0.630      0.629      26.65      26.68    0.001  OK
+
+[3] 大量独立小 buffer H2D (每个 buffer 单独 cudaMalloc/cudaHostAlloc)
+scenario                   method    med(ms)    min(ms)  med(GB/s)  min(GB/s)  enq(ms)  verify
+indep 4 KiB n=1            CE          0.003      0.002       1.58       1.64    0.001  OK
+indep 4 KiB n=1            CEgr        0.003      0.002       1.62       1.64    0.001  OK
+indep 4 KiB n=1            CEbt        0.002      0.002       1.64       1.66    0.001  OK
+indep 4 KiB n=1            SM          0.004      0.004       1.00       1.09    0.001  OK
+indep 4 KiB n=4096         CE          5.345      5.336       3.14       3.14    4.519  OK
+indep 4 KiB n=4096         CEgr        6.321      6.167       2.65       2.72    6.313  OK
+indep 4 KiB n=4096         CEbt        1.541      1.529      10.89      10.97    0.905  OK
+indep 4 KiB n=4096         SM          0.629      0.629      26.66      26.68    0.001  OK
+indep 16 KiB n=1024        CE          1.995      1.986       8.41       8.45    1.110  OK
+indep 16 KiB n=1024        CEgr        1.745      1.724       9.62       9.73    1.738  OK
+indep 16 KiB n=1024        CEbt        0.848      0.842      19.79      19.92    0.225  OK
+indep 16 KiB n=1024        SM          0.630      0.629      26.65      26.68    0.001  OK
+indep 64 KiB n=256         CE          0.999      0.995      16.80      16.87    0.313  OK
+indep 64 KiB n=256         CEgr        1.034      1.019      16.23      16.47    0.282  OK
+indep 64 KiB n=256         CEbt        0.678      0.676      24.73      24.81    0.055  OK
+indep 64 KiB n=256         SM          0.630      0.629      26.64      26.68    0.001  OK
+indep 256 KiB n=64         CE          0.714      0.711      23.51      23.59    0.080  OK
+indep 256 KiB n=64         CEgr        0.727      0.718      23.07      23.35    0.062  OK
+indep 256 KiB n=64         CEbt        0.638      0.638      26.28      26.28    0.014  OK
+indep 256 KiB n=64         SM          0.629      0.629      26.68      26.69    0.001  OK
+
+[4] H2D 传输与计算重叠 (64 MiB H2D + spin kernel)
+  compute only          :    8.591 ms (med)
+  H2D only CE  (64 MiB) :    2.503 ms
+  H2D only SM  (64 MiB) :    2.502 ms
+  compute + H2D CE      :    8.615 ms  (理想=max(两者)=8.591, 串行=11.094)
+  compute + H2D SM      :   11.066 ms  (理想=max(两者)=8.591, 串行=11.093)

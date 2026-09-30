@@ -1,0 +1,15 @@
+2026-09-18, RTX 4090, Ryzen 9 9950X, driver 595.91.07, 4096 x 4096 B, 16 MiB logical data.
+CPU BAR path uses tinygrad NVK CPU mappings of 4096 separately allocated GPU buffers.
+3 warmups, 15 measured repetitions, median; each timed batch followed immediately by full CE D2H readback and byte-by-byte verification outside timing.
+The CE control uses the same source/destination allocations, one GPFIFO publication, first data copy non-pipelined and later copies pipelined.
+CE cpu_issue_us is command build + publish; CE cpu_active_us includes the probe's busy-poll completion wait. BAR parallel CPU times sum all workers and include per-batch thread creation.
+
+method,hot_path_us,cpu_issue_us,cpu_active_us,GBps,cpu_core_equiv,accelerated_copies,bad
+bar_memcpy,1510.090,1509.498,1509.498,11.110,1.000,0,0
+bar_avx2_nt_1t,767.403,766.762,766.762,21.862,0.999,4096,0
+bar_avx512_nt_1t,767.423,766.652,766.652,21.862,0.999,4096,0
+bar_movdir64b_1t,762.764,762.193,762.193,21.995,0.999,4096,0
+bar_avx2_nt_2t,766.240,1393.360,1393.360,21.896,1.818,4096,0
+bar_avx2_nt_4t,771.601,2808.952,2808.952,21.743,3.640,4096,0
+bar_avx2_nt_8t,793.802,5137.230,5137.230,21.135,6.472,4096,0
+ce_pipelined,647.497,6.231,649.992,25.911,1.004,0,0
