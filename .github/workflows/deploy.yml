@@ -1,10 +1,6 @@
-name: Deploy site
+name: Deploy site (manual)
 
 on:
-  push:
-    branches:
-      - main
-      - master
   workflow_dispatch:
 
 permissions:
