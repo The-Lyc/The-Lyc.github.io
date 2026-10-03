@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "notes_root": "/Users/sebby/Documents/Notes",
+  "posts": [
+    {
+      "source": "MLSys/agent/ContextCompact.md",
+      "target": "_posts/2026-09-30-code-agent-context-window-management.md"
+    },
+    {
+      "source": "lecture-learning/cse234/2-basics.md",
+      "target": "_posts/2026-09-30-cse234-deep-learning-systems-basics.md"
+    },
+    {
+      "source": "lecture-learning/cse234/Parallelism.md",
+      "target": "_posts/2026-09-30-cse234-parallelism-distributed-training.md"
+    },
+    {
+      "source": "MLSys/GPU/CUDA-GRAPH.md",
+      "target": "_posts/2026-09-30-cuda-graphs-stream-capture.md"
+    },
+    {
+      "source": "MLSys/vLLM/decode-only模型的理解.md",
+      "target": "_posts/2026-09-30-decoder-only-inference-kv-cache.md"
+    },
+    {
+      "source": "paper-reading/GPU/cpu_gpu_io_report/CPU_GPU_IO技术报告.md",
+      "target": "_posts/2026-09-30-gpu-io-technical-report.md"
+    },
+    {
+      "source": "Arch/RTOS/实时系统技术.md",
+      "target": "_posts/2026-09-30-linux-preempt-rt-mechanisms.md"
+    },
+    {
+      "source": "Arch/Linux/injection.md",
+      "target": "_posts/2026-09-30-linux-process-injection-mechanisms.md"
+    },
+    {
+      "source": "MLSys/llama.cpp/源码阅读（2）：decode函数.md",
+      "target": "_posts/2026-09-30-llama-cpp-decode-function.md"
+    },
+    {
+      "source": "MLSys/llama.cpp/源码阅读（3）：ggml计算流程.md",
+      "target": "_posts/2026-09-30-llama-cpp-ggml-compute-flow.md"
+    },
+    {
+      "source": "MLSys/llama.cpp/源码阅读（1）：request推理过程.md",
+      "target": "_posts/2026-09-30-llama-cpp-request-inference.md"
+    },
+    {
+      "source": "paper-reading/GPU/DART.md",
+      "target": "_posts/2026-09-30-paper-dart.md"
+    },
+    {
+      "source": "paper-reading/mlsys/eLLM.md",
+      "target": "_posts/2026-09-30-paper-ellm.md"
+    },
+    {
+      "source": "paper-reading/GPU/Forest.md",
+      "target": "_posts/2026-09-30-paper-forest.md"
+    },
+    {
+      "source": "paper-reading/GPU/Hardware_Compute_Partition.md",
+      "target": "_posts/2026-09-30-paper-hardware-compute-partition.md"
+    },
+    {
+      "source": "paper-reading/mlsys/IMPRESS.md",
+      "target": "_posts/2026-09-30-paper-impress.md"
+    },
+    {
+      "source": "paper-reading/GPU/In-depth-UVM.md",
+      "target": "_posts/2026-09-30-paper-in-depth-uvm.md"
+    },
+    {
+      "source": "paper-reading/EdgeInfer/KTransformers.md",
+      "target": "_posts/2026-09-30-paper-ktransformers.md"
+    },
+    {
+      "source": "paper-reading/EdgeInfer/NanoMind.md",
+      "target": "_posts/2026-09-30-paper-nanomind.md"
+    },
+    {
+      "source": "paper-reading/mlsys/NEO.md",
+      "target": "_posts/2026-09-30-paper-neo.md"
+    },
+    {
+      "source": "paper-reading/EdgeInfer/POET.md",
+      "target": "_posts/2026-09-30-paper-poet.md"
+    },
+    {
+      "source": "paper-reading/GPU/sBEET.md",
+      "target": "_posts/2026-09-30-paper-sbeet.md"
+    },
+    {
+      "source": "paper-reading/mlsys/SparseServe.md",
+      "target": "_posts/2026-09-30-paper-sparse-serve.md"
+    },
+    {
+      "source": "paper-reading/mlsys/Strata.md",
+      "target": "_posts/2026-09-30-paper-strata.md"
+    },
+    {
+      "source": "paper-reading/mlsys/TightLLM.md",
+      "target": "_posts/2026-09-30-paper-tight-llm.md"
+    },
+    {
+      "source": "paper-reading/GPU/TX2_hidden_details.md",
+      "target": "_posts/2026-09-30-paper-tx2-scheduling.md"
+    },
+    {
+      "source": "paper-reading/mlsys/vLLM.md",
+      "target": "_posts/2026-09-30-paper-vllm-paged-attention.md"
+    },
+    {
+      "source": "Arch/GPU/PCIe_GPU_Copy_Engine_CUDA_Transfer_Notes.md",
+      "target": "_posts/2026-09-30-pcie-gpu-copy-engine-cuda-transfers.md"
+    },
+    {
+      "source": "LLM/Transformer.md",
+      "target": "_posts/2026-09-30-transformer-autoregressive-models.md"
+    },
+    {
+      "source": "MLSys/vLLM/源码阅读（4）：GPUModelRunner.md",
+      "target": "_posts/2026-09-30-vllm-gpu-model-runner.md"
+    },
+    {
+      "source": "MLSys/vLLM/源码阅读（2）：KV管理.md",
+      "target": "_posts/2026-09-30-vllm-kv-cache-management.md"
+    },
+    {
+      "source": "MLSys/vLLM/源码阅读（3）：scheduler.md",
+      "target": "_posts/2026-09-30-vllm-scheduler.md"
+    }
+  ]
+}

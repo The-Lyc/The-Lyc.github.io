@@ -193,6 +193,11 @@ body.fixed-top-nav .blog-layout {
   display: block;
 }
 
+.blog-layout .post-content img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* MathJax adds inline minimum widths that can exceed the article column. */
 .blog-layout .post-content mjx-container[display="true"] {
   min-width: 0 !important;

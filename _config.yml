@@ -231,6 +231,7 @@ exclude:
   - lighthouse_results/
   - package.json
   - package-lock.json
+  - notes-sync.json
   - _pages/about_einstein.md
   - _projects/
   - _teachings/

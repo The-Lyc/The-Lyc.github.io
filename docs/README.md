@@ -12,6 +12,7 @@ These guides cover the `al-folio` v1.x starter and its pluginized runtime.
 - [Analytics](ANALYTICS.md): analytics provider setup.
 - [SEO](SEO.md): search-engine and social preview setup.
 - [Notes Migration](NOTES_MIGRATION.md): imported technical notes, topic organization, missing images, and ongoing article editing.
+- [Notes Sync](NOTES_SYNC.md): selectively sync local Notes into blog posts, review changes, and publish from a Mac.
 
 ## Maintainer Guides
 
