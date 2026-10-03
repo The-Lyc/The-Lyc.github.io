@@ -294,6 +294,12 @@ plugins:
 # Sitemap settings
 defaults:
   - scope:
+      path: ""
+      type: posts
+    values:
+      blog_sidebar: true
+      toc: true
+  - scope:
       path: "assets"
     values:
       sitemap: false

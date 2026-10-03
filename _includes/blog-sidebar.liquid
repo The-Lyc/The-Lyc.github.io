@@ -1,0 +1,99 @@
+<aside class="blog-sidebar" aria-label="博客导航" lang="zh-CN">
+  <details class="blog-nav-panel blog-library-panel" open>
+    <summary><span class="blog-nav-label">博客目录</span><span class="blog-nav-icon" aria-hidden="true"></span></summary>
+    <nav class="blog-library" aria-label="博客目录">
+      <a class="blog-library-home" href="{{ '/blog/topics/' | relative_url }}">全部专题</a>
+      {% assign known_categories = site.data.blog_topics | map: 'category' %}
+      {% for topic in site.data.blog_topics %}
+        {% assign topic_posts = site.posts | where_exp: 'post', 'post.categories contains topic.category' | sort: 'title' %}
+        {% if topic_posts.size > 0 %}
+          <details
+            class="blog-topic"
+            {% if page.categories contains topic.category %}
+              open
+            {% endif %}
+          >
+            <summary>
+              {{ topic.title | escape }}
+              <span class="blog-post-count">{{ topic_posts.size }}</span>
+            </summary>
+            {% assign known_series = topic.series | map: 'id' %}
+            <ul class="blog-post-list">
+              {% for post in topic_posts %}
+                {% unless known_series contains post.series %}
+                  {% include blog-sidebar-post.liquid post=post %}
+                {% endunless %}
+              {% endfor %}
+            </ul>
+            {% for series in topic.series %}
+              {% assign series_posts = topic_posts | where: 'series', series.id | sort: 'series_order' %}
+              {% if series_posts.size > 0 %}
+                <details
+                  class="blog-series"
+                  {% if page.series == series.id %}
+                    open
+                  {% endif %}
+                >
+                  <summary>
+                    {{ series.title | escape }}
+                    <span class="blog-post-count">{{ series_posts.size }}</span>
+                  </summary>
+                  <ol class="blog-post-list">
+                    {% for post in series_posts %}
+                      {% include blog-sidebar-post.liquid post=post %}
+                    {% endfor %}
+                  </ol>
+                </details>
+              {% endif %}
+            {% endfor %}
+          </details>
+        {% endif %}
+      {% endfor %}
+      {% capture other_posts %}
+        {% for post in site.posts %}
+          {% assign known_topic = false %}
+          {% for category in post.categories %}
+            {% if known_categories contains category %}
+              {% assign known_topic = true %}
+            {% endif %}
+          {% endfor %}
+          {% unless known_topic %}
+            {% include blog-sidebar-post.liquid post=post %}
+          {% endunless %}
+        {% endfor %}
+      {% endcapture %}
+      {% assign other_posts = other_posts | strip %}
+      {% if other_posts != '' %}
+        {% assign current_topic_known = false %}
+        {% for category in page.categories %}
+          {% if known_categories contains category %}
+            {% assign current_topic_known = true %}
+          {% endif %}
+        {% endfor %}
+        <details
+          class="blog-topic"
+          {% unless current_topic_known %}
+            open
+          {% endunless %}
+        >
+          <summary>其他文章</summary>
+          <ul class="blog-post-list">
+            {{ other_posts }}
+          </ul>
+        </details>
+      {% endif %}
+    </nav>
+  </details>
+
+  <details class="blog-nav-panel blog-toc-panel" open>
+    <summary><span class="blog-nav-label">本文目录</span><span class="blog-nav-icon" aria-hidden="true"></span></summary>
+    <nav id="blog-article-toc" class="blog-article-toc" aria-label="本文目录">
+      {% capture article_toc %}{% toc %}{% endcapture %}
+      {% if article_toc contains '<a ' %}
+        {{ article_toc | replace: 'id="toc"', 'id="blog-article-toc-list"' }}
+      {% else %}
+        <p class="blog-toc-empty">本文暂无章节标题</p>
+      {% endif %}
+    </nav>
+  </details>
+</aside>
